@@ -3,18 +3,18 @@
 Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/
 Description:  Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.
-Version:      1.0.1
+Version:      1.0.2
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 
 */
 
-define("PLUGIN_NAME","Inline Tweet Sharer");
-define("PLUGIN_TAGLINE","Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.");
-define("PLUGIN_URL","http://winwar.co.uk/plugins/inline-tweet-sharer/");
-define("EXTEND_URL","http://wordpress.org/plugins/inline-tweet-sharer/");
-define("AUTHOR_TWITTER","rhyswynne");
-define("DONATE_LINK","https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F852ZPEANV7C6");
+define("ITS_PLUGIN_NAME","Inline Tweet Sharer");
+define("ITS_PLUGIN_TAGLINE","Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.");
+define("ITS_PLUGIN_URL","http://winwar.co.uk/plugins/inline-tweet-sharer/");
+define("ITS_EXTEND_URL","http://wordpress.org/plugins/inline-tweet-sharer/");
+define("ITS_AUTHOR_TWITTER","rhyswynne");
+define("ITS_DONATE_LINK","https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SBVM5663CHYN4");
 
 function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix = "", $content) {
 
@@ -106,7 +106,7 @@ function inline_tweet_sharer_options() {
 ?>
         <div class="pea_admin_wrap">
                 <div class="pea_admin_top">
-                    <h1><?php echo PLUGIN_NAME?> <small> - <?php echo PLUGIN_TAGLINE?></small></h1>
+                    <h1><?php echo ITS_PLUGIN_NAME?> <small> - <?php echo ITS_PLUGIN_TAGLINE?></small></h1>
                 </div>
         
                 <div class="pea_admin_main_wrap">
@@ -171,7 +171,7 @@ function inline_tweet_sharer_options() {
                     <div class="pea_admin_box">
                     
                         <h2>Like this Plugin?</h2>
-                        <a href="<?php echo EXTEND_URL; ?>" target="_blank"><button type="submit" class="pea_admin_green">Rate this plugin	&#9733;	&#9733;	&#9733;	&#9733;	&#9733;</button></a><br><br>
+                        <a href="<?php echo ITS_EXTEND_URL; ?>" target="_blank"><button type="submit" class="pea_admin_green">Rate this plugin	&#9733;	&#9733;	&#9733;	&#9733;	&#9733;</button></a><br><br>
                         
                         <div id="fb-root"></div>
                         
@@ -184,17 +184,17 @@ function inline_tweet_sharer_options() {
                             }(document, 'script', 'facebook-jssdk'));
                         </script>
                         
-                        <div class="fb-like" data-href="<?php echo PLUGIN_URL; ?>" data-send="true" data-layout="button_count" data-width="250" data-show-faces="true"></div>
+                        <div class="fb-like" data-href="<?php echo ITS_PLUGIN_URL; ?>" data-send="true" data-layout="button_count" data-width="250" data-show-faces="true"></div>
                         <br>
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo PLUGIN_URL; ?>" data-text="Just been using <?php echo PLUGIN_NAME; ?> #WordPress plugin" data-via="<?php echo AUTHOR_TWITTER; ?>" data-related="WPBrewers">Tweet</a>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo ITS_PLUGIN_URL; ?>" data-text="Just been using <?php echo ITS_PLUGIN_NAME; ?> #WordPress plugin" data-via="<?php echo ITS_AUTHOR_TWITTER; ?>" data-related="WPBrewers">Tweet</a>
                         
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
                         
                         <br>
-                        <a href="http://bufferapp.com/add" class="buffer-add-button" data-text="Just been using <?php echo PLUGIN_NAME; ?> #WordPress plugin" data-url="<?php echo PLUGIN_URL; ?>" data-count="horizontal" data-via="<?php echo AUTHOR_TWITTER; ?>">Buffer</a><script type="text/javascript" src="http://static.bufferapp.com/js/button.js"></script>
+                        <a href="http://bufferapp.com/add" class="buffer-add-button" data-text="Just been using <?php echo ITS_PLUGIN_NAME; ?> #WordPress plugin" data-url="<?php echo ITS_PLUGIN_URL; ?>" data-count="horizontal" data-via="<?php echo ITS_AUTHOR_TWITTER; ?>">Buffer</a><script type="text/javascript" src="http://static.bufferapp.com/js/button.js"></script>
                         
                         <br>
-                        <div class="g-plusone" data-size="medium" data-href="<?php echo PLUGIN_URL; ?>"></div>
+                        <div class="g-plusone" data-size="medium" data-href="<?php echo ITS_PLUGIN_URL; ?>"></div>
                         
                         <script type="text/javascript">
                             window.___gcfg = {lang: 'en-GB'};
@@ -208,7 +208,7 @@ function inline_tweet_sharer_options() {
 
                         <br>
  
-                        <su:badge layout="3" location="<?php echo PLUGIN_URL?>"></su:badge>
+                        <su:badge layout="3" location="<?php echo ITS_PLUGIN_URL?>"></su:badge>
 
                         <script type="text/javascript">
                           (function() {
@@ -219,7 +219,7 @@ function inline_tweet_sharer_options() {
                         </script>
                     </div>
 
-                    <center><a href="<?php echo DONATE_LINK; ?>" target="_blank"><img class="paypal" src="<?php echo plugins_url( 'paypal.gif' , __FILE__ ); ?>" width="147" height="47" title="Please Donate - it helps support this plugin!"></a></center>
+                    <center><a href="<?php echo ITS_DONATE_LINK; ?>" target="_blank"><img class="paypal" src="<?php echo plugins_url( 'paypal.gif' , __FILE__ ); ?>" width="147" height="47" title="Please Donate - it helps support this plugin!"></a></center>
 
                 <div class="pea_admin_box">
                     <h2>About the Author</h2>

@@ -14,7 +14,7 @@ Link:
 Tags: twitter, social media, social media marketing, social media promotion, tweet, new york times
 Requires at least: 3.0
 Tested up to: 3.7.3
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 == Description ==
 
@@ -30,6 +30,9 @@ Styles are already provided, but if you wish we can help you design the plugin t
 1. Example of how the twitter feed appears in your site.
 
 == Changelog ==
+= 1.0.2 =
+* Fixed an error in the options page that displayed the wrong plugin title should you have one or more plugins installed of mine.
+
 = 1.0.1 =
 * Fixed a small bug in the readme file.
 
