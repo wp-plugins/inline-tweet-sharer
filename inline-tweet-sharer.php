@@ -3,7 +3,7 @@
 Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/
 Description:  Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.
-Version:      1.0.3
+Version:      1.0.4
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 
@@ -23,10 +23,14 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
     if ("" != $prefix)
     {
         $tweetlinkstring .= $prefix . ' ';
-    }
-    
-    if ("" != $tweeter)
+    } 
+    elseif ("" != $tweeter) 
     {
+        $tweetlinkstring .= "RT @" . $tweeter . ": ";
+    } 
+    elseif ("" != get_option('inline-tweet-sharer-default'))
+    {
+        $tweeter = get_option('inline-tweet-sharer-default');
         $tweetlinkstring .= "RT @" . $tweeter . ": ";
     }
     
@@ -41,6 +45,11 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
     {
         $tweetlinkstring = substr($tweetlinkstring,0,116);
         $tweetlinkstring = preg_replace('/ [^ ]*$/', ' ...', $tweetlinkstring); 
+    }
+    
+    if ("1" == get_option('inline-tweet-sharer-capitalise'))
+    {
+        $tweetlinkstring = ucfirst($tweetlinkstring);                
     }
     
     $tweetlinkstring = urlencode($tweetlinkstring);
@@ -141,7 +150,7 @@ function inline_tweet_sharer_options() {
                         <tbody>
 
                         <tr valign="top">
-                            <th scope="row" style="width:400px"><label for="inline-tweet-sharer-default"><?php _e('Default Twitter Handle','inline-tweet-sharer'); ?>:</label></th>
+                            <th scope="row" style="width:400px"><label for="inline-tweet-sharer-default"><?php _e('Default Twitter Handle (leave blank for none)','inline-tweet-sharer'); ?>:</label></th>
                             <td><input type="text" name="inline-tweet-sharer-default" id="inline-tweet-sharer-default" class="regular-text code" value="<?php echo get_option('inline-tweet-sharer-default'); ?>" />
                             <br /><?php _e('This is the "RT @______: section for tweets before the quoted text, leave blank for no quoted text','inline-tweet-sharer'); ?>
                             <br /><?php _e('Just place the twitter username, no @, no http://twitter.com/','inline-tweet-sharer'); ?>
@@ -153,6 +162,10 @@ function inline_tweet_sharer_options() {
                             <td><input type="checkbox" name="inline-tweet-sharer-marker" id="inline-tweet-sharer-marker" value="1" <?php if (get_option('inline-tweet-sharer-marker') == 1) { echo "checked"; } ?> /></td>
                         </tr>
 
+                        <tr valign="top">
+                            <th scope="row" style="width:400px"><label for="inline-tweet-sharer-capitalise"><?php _e('Capitalise first letter of Tweet?','inline-tweet-sharer'); ?>:</label></th>
+                            <td><input type="checkbox" name="inline-tweet-sharer-capitalise" id="inline-tweet-sharer-capitalise" value="1" <?php if (get_option('inline-tweet-sharer-capitalise') == 1) { echo "checked"; } ?> /></td>
+                        </tr>
 
                         </tbody>
                     </table>
@@ -250,6 +263,7 @@ function inline_tweet_sharer_process() { // whitelist options
 
   register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-default' );
   register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-marker' );
+  register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-capitalise' );
 }
 
 /* THIS FUNCTION ADDS A BUTTON TO WORDPRESS' TINYMCE TO SHOW THE TWITTER BUTTON AND ALLOWERS USERS TO CLICK TO ADD THE SHORTCODE */
