@@ -14,7 +14,7 @@ Link:
 Tags: twitter, social media, social media marketing, social media promotion, tweet, new york times
 Requires at least: 3.0
 Tested up to: 3.6.1
-table tag: 1.0.6
+Stable tag: 1.0.6
 
 == Description ==
 
