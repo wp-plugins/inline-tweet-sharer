@@ -3,14 +3,20 @@
 Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/
 Description:  Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.
-Version:      1.0.7.2
+Version:      1.1.0
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 
 */
 
+function inline_tweet_sharer_textdomain() {
+    $plugin_dir = basename(dirname(__FILE__));
+    load_plugin_textdomain( 'inline-tweet-sharer', false, $plugin_dir .'/languages' );
+}
+add_action('plugins_loaded', 'inline_tweet_sharer_textdomain');
+
 define("ITS_PLUGIN_NAME","Inline Tweet Sharer");
-define("ITS_PLUGIN_TAGLINE","Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.");
+define('ITS_PLUGIN_TAGLINE',__('Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.','inline-tweet-sharer'));
 define("ITS_PLUGIN_URL","http://winwar.co.uk/plugins/inline-tweet-sharer/");
 define("ITS_EXTEND_URL","http://wordpress.org/plugins/inline-tweet-sharer/");
 define("ITS_AUTHOR_TWITTER","rhyswynne");
@@ -123,13 +129,13 @@ function inline_tweet_sharer_options() {
                 <div class="pea_admin_main_wrap">
                     <div class="pea_admin_main_left">
                         <div class="pea_admin_signup">
-                            Want to know about updates to this plugin without having to log into your site every time? Want to know about other cool plugins we've made? Add your email and we'll add you to our very rare mail outs.
+                            <?php _e('Want to know about updates to this plugin without having to log into your site every time? Want to know about other cool plugins we\'ve made? Add your email and we\'ll add you to our very rare mail outs.','inline-tweet-sharer'); ?>
         
                             <!-- Begin MailChimp Signup Form -->
                             <div id="mc_embed_signup">
-                            <form action="http://peadig.us5.list-manage2.com/subscribe/post?u=e16b7a214b2d8a69e134e5b70&amp;id=eb50326bdf" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <form action="http://gospelrhys.us1.list-manage.com/subscribe/post?u=c656fe50ec16f06f152034ea9&amp;id=d9645e38c2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
                             <div class="mc-field-group">
-                                <label for="mce-EMAIL">Email Address
+                                <label for="mce-EMAIL"> <?php _e('Email Address','inline-tweet-sharer'); ?>
                             </label>
                                 <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"><button type="submit" name="subscribe" id="mc-embedded-subscribe" class="pea_admin_green">Sign Up!</button>
                             </div>
@@ -175,7 +181,7 @@ function inline_tweet_sharer_options() {
                     <input type="hidden" name="action" value="update" />
                     <input type="hidden" name="page_options" value="inline-tweet-sharer-default" />
 
-                    <p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" /></p>
+                    <p class="submit"><input type="submit" class="button-primary" value="<?php _e('Save Changes','inline-tweet-sharer'); ?>" /></p>
 
                     </form>
 
@@ -185,8 +191,8 @@ function inline_tweet_sharer_options() {
                 <div class="pea_admin_main_right">
                     <div class="pea_admin_box">
                     
-                        <h2>Like this Plugin?</h2>
-                        <a href="<?php echo ITS_EXTEND_URL; ?>" target="_blank"><button type="submit" class="pea_admin_green">Rate this plugin	&#9733;	&#9733;	&#9733;	&#9733;	&#9733;</button></a><br><br>
+                        <h2><?php _e('Like this Plugin?','inline-tweet-sharer'); ?></h2>
+                        <a href="<?php echo ITS_EXTEND_URL; ?>" target="_blank"><button type="submit" class="pea_admin_green"><?php _e('Rate this plugin','inline-tweet-sharer'); ?>	&#9733;	&#9733;	&#9733;	&#9733;	&#9733;</button></a><br><br>
                         
                         <div id="fb-root"></div>
                         
@@ -237,7 +243,7 @@ function inline_tweet_sharer_options() {
                     <center><a href="<?php echo ITS_DONATE_LINK; ?>" target="_blank"><img class="paypal" src="<?php echo plugins_url( 'paypal.gif' , __FILE__ ); ?>" width="147" height="47" title="Please Donate - it helps support this plugin!"></a></center>
 
                 <div class="pea_admin_box">
-                    <h2>About the Author</h2>
+                    <h2><?php _e('About the Author','inline-tweet-sharer'); ?></h2>
 
                     <?php
                     $default = "http://reviews.evanscycles.com/static/0924-en_gb/noAvatar.gif";
@@ -249,7 +255,7 @@ function inline_tweet_sharer_options() {
                     <div class="fb-subscribe" data-href="https://www.facebook.com/rhysywynne" data-layout="button_count" data-show-faces="false" data-width="220"></div>
                     </p>
                     
-                    <p class="pea_admin_clear">Rhys Wynne is a Digital Marketing Consultant currently at 3 Door Digital and a freelance WordPress developer and blogger. His plugins have had a total of 100,000 downloads, and his premium plugins have generated four figure sums in terms of sales. Rhys likes rubbish football (supporting Colwyn Bay FC) and Professional Wrestling.</p>
+                    <p class="pea_admin_clear"><?php _e('Rhys Wynne is a Digital Marketing Consultant currently at FireCask and a freelance WordPress developer and blogger. His plugins have had a total of 100,000 downloads, and his premium plugins have generated four figure sums in terms of sales. Rhys likes rubbish football (supporting Colwyn Bay FC) and Professional Wrestling.','inline-tweet-sharer'); ?></p>
                 
                 </div>
 
