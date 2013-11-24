@@ -3,7 +3,7 @@
 Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/
 Description:  Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.
-Version:      1.1.0
+Version:      1.2.0
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 
@@ -62,18 +62,23 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
     
     $tweetlinkstring = urlencode($tweetlinkstring);
     
-
-    $link = '<a '; 
+    $extraclass=get_option('inline-tweet-sharer-extraclass');
+    
+    if ($extraclass) {
+        $extraclass = '<div class="'.$extraclass.'">';
+    }
+    
+    $link = $extraclass . '<a class="'; 
     
     if ("1" == get_option('inline-tweet-sharer-marker'))
     {
-        $link .= 'class="inline-twitter-link"';
+        $link .= 'inline-twitter-link';
     }
     
     $url = 'https://twitter.com/intent/tweet?url=' . urlencode(get_permalink()) . '&text=' . $tweetlinkstring;
     $url = str_replace(array("\n","\r"), "", $url);
     $url = str_replace(array("/"), "\/", $url);
-    $link .= ' href="#" onclick="inline_tweet_sharer_open_win(\''.$url.'\');"';
+    $link .= '" href="#" onclick="inline_tweet_sharer_open_win(\''.$url.'\');"';
     //$link .= ' href="#" onclick="window.open(\''.$url.'\',\'tweetwindow\',\'width=566,height=592,location=yes,directories=no,channelmode=no,menubar=no,resizable=no,scrollbars=no,status=no,toolbar=no\')"';
     $link .= ' title="'. __('Tweet This!','inline-tweet-sharer').'">' . $content; 
 
@@ -83,6 +88,11 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
     }
     
     $link .= "</a>";
+    
+    if ($extraclass)
+    {
+        $link .= "</div>";
+    }
     
     return $link;
 
@@ -173,6 +183,13 @@ function inline_tweet_sharer_options() {
                         <tr valign="top">
                             <th scope="row" style="width:400px"><label for="inline-tweet-sharer-capitalise"><?php _e('Capitalise first letter of Tweet?','inline-tweet-sharer'); ?>:</label></th>
                             <td><input type="checkbox" name="inline-tweet-sharer-capitalise" id="inline-tweet-sharer-capitalise" value="1" <?php if (get_option('inline-tweet-sharer-capitalise') == 1) { echo "checked"; } ?> /></td>
+                        </tr>
+
+                        <tr valign="top">
+                            <th scope="row" style="width:400px"><label for="inline-tweet-sharer-extraclass"><?php _e('Added class for the wrapper div (advanced)','inline-tweet-sharer'); ?>:</label></th>
+                            <td><input type="text" name="inline-tweet-sharer-extraclass" id="inline-tweet-sharer-extraclass" class="regular-text code" value="<?php echo get_option('inline-tweet-sharer-extraclass'); ?>" />
+                            <br /><?php _e('Use this to add an extra class to the wrapper, use this to control what your tweet link looks like.','inline-tweet-sharer'); ?>
+                            </td>
                         </tr>
 
                         </tbody>
@@ -272,6 +289,7 @@ function inline_tweet_sharer_process() { // whitelist options
   register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-default' );
   register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-marker' );
   register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-capitalise' );
+  register_setting( 'inline-tweet-sharer-group', 'inline-tweet-sharer-extraclass' );
 }
 
 /* THIS FUNCTION ADDS A BUTTON TO WORDPRESS' TINYMCE TO SHOW THE TWITTER BUTTON AND ALLOWERS USERS TO CLICK TO ADD THE SHORTCODE */
