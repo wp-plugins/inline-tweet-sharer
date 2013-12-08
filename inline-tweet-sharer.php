@@ -3,7 +3,7 @@
 Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/
 Description:  Create twitter links on your site that tweet the anchor text - for memorable quotes to help increase social media views, similar to the New York Times.
-Version:      1.2.0
+Version:      1.2.1
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 
@@ -42,7 +42,7 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
         $tweetlinkstring .= "RT @" . $tweeter . ": ";
     }
     $content = strip_tags($content);
-    $tweetlinkstring .= '' . $content . ' ';
+    $tweetlinkstring .= $content . ' ';
     
     if ("" != $suffix && "null" != $suffix)
     {
@@ -60,7 +60,7 @@ function inline_tweet_sharer_create_tweet($prefix = "", $tweeter = "", $suffix =
         $tweetlinkstring = ucfirst($tweetlinkstring);                
     }
     
-    $tweetlinkstring = urlencode($tweetlinkstring);
+    $tweetlinkstring = urlencode(html_entity_decode($tweetlinkstring, ENT_COMPAT, 'UTF-8'));
     
     $extraclass=get_option('inline-tweet-sharer-extraclass');
     

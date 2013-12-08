@@ -3,7 +3,7 @@ Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/  
 Donate link: http://winwar.co.uk/plugins/inline-tweet-sharer/#donate 
 Description: Create twitter links on your site that tweet memorable quotes in your text to help increase social media views, similar to the New York Times.
-Version:      1.2.0
+Version:      1.2.1
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 License: GPLv2 or later
@@ -13,8 +13,8 @@ Contributors: rhyswynne
 Link: 
 Tags: twitter, social media, social media marketing, social media promotion, tweet, new york times
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 1.2.0
+Tested up to: 3.8
+Stable tag: 1.2.1
 
 == Description ==
 
@@ -33,10 +33,17 @@ The plugin has been translated to the following languages.
 
 To contribute a translation, please [contact me](http://winwar.co.uk/contact-us/)!
 
+= On Github =
+This project is now on github, [you can view the repository here](https://github.com/rhyswynne/inline-tweet-sharer/). There are other versions, but this is the one I've put up, so where all the developmental will be tracked.
+
 == Screenshots ==
 1. Example of how the twitter feed appears in your site.
 
 == Changelog ==
+= 1.2.1 =
+* Bug fix so that special characters are encoded in the URL.
+* Tested with WordPress 3.8
+
 = 1.2.0 =
 * Added an extra option where you can create a wrapper div around the tweet. Use this to make the Inline Tweet Sharer not inline :). 
 
