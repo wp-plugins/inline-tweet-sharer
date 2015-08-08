@@ -3,7 +3,7 @@ Plugin Name:  Inline Tweet Sharer
 Plugin URI: http://winwar.co.uk/plugins/inline-tweet-sharer/  
 Donate link: http://winwar.co.uk/plugins/inline-tweet-sharer/#donate 
 Description: Create twitter links on your site that tweet memorable quotes in your text to help increase social media views, similar to the New York Times.
-Version:      1.4.4
+Version:      1.5
 Author:       Rhys Wynne
 Author URI:   http://winwar.co.uk/
 License: GPLv2 or later
@@ -13,8 +13,8 @@ Contributors: rhyswynne
 Link: 
 Tags: twitter, social media, social media marketing, social media promotion, tweet, new york times
 Requires at least: 3.8
-Tested up to: 4.0
-Stable tag: 1.4.4
+Tested up to: 4.1
+Stable tag: 1.5
 
 == Description ==
 
@@ -24,7 +24,9 @@ Links can either be highlighted as Twitter links or look the same as regular lin
 
 You can see an example on the [Inline Tweet Sharer Plugin page](http://winwar.co.uk/plugins/inline-tweet-sharer/).
 
-Styles are already provided, but if you wish we can help you design the plugin to fit your site with our [CSS Customisation Service](http://winwar.co.uk/plugins/inline-tweet-sharer/#csscustomisation)
+For more information, please visit the [Inline Tweet Sharer Documentation page](http://winwar.co.uk/documentation/inline-tweet-sharer/).
+
+**We are running a survey right now to help us determine where to go with this project. We'd love your feedback. If you have time, [please fill in the survey here](https://docs.google.com/forms/d/1Hg5AIthPIoLAhmi161P6hweCeuBATY_5KrhsqJqG0QI/viewform).**
 
 = Translation Credits =
 The plugin has been translated to the following languages.
@@ -56,6 +58,19 @@ This project is now on github, [you can view the repository here](https://github
 1. Example of how the twitter feed appears in your site.
 
 == Changelog ==
+= 1.5 =
+* Added the ability to set a default prefix and suffix for the tweets.
+
+Total Time Taken - 27 minutes
+
+= 1.4.5 =
+* Fixed WP_DEBUG notices in the back end - calling has_cap with a proper capability, rather than by user level.
+* Fixed WP_DEBUG notices in the front end - calling the script enqueuing in the correct place, rather than at init.
+* Called admin_enqueue_scripts to enqueue the scripts, rather than using admin_init
+* Added blank variables for Prefix/Suffix/Tweeter to stop the "Underfined Variable" notice in WP_DEBUG.
+
+Total Time Taken - 23 minutes
+
 = 1.4.4 =
 * Changed version number of admin CSS as people were having issues with it updating.
 
